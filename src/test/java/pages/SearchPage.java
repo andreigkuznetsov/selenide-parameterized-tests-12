@@ -11,7 +11,7 @@ public class SearchPage {
 
     private final String SEARCH_PAGE_TITLE = "Поиск на сайте";
 
-    private SelenideElement
+    private final SelenideElement
             searchField = $(".ui-input-root_a0jXy"),
             searchPageBody = $(".page__content"),
             pagesSection = $(".list_O8N5j");

@@ -14,7 +14,7 @@ public class ParameterizedSearchPageTests extends TestBase {
     @CsvFileSource(resources = "/theSearchResultsShouldContainLinksToRelevantPages.csv")
     @DisplayName("Результат поиска должен содержать ссылки на страницы релевантные запросу")
     @ParameterizedTest(name = "Для поискового запроса {0} в разделе Страницы должна быть ссылка {1}")
-    void theSearchResultsShouldContainLinksToRelevantPages(String searchQuery, String expectedLink) {
+    void theSearchResultsShouldContainLinksToRelevantPagesTest(String searchQuery, String expectedLink) {
           searchPage.openSearchPage()
                     .inputToSearchField(searchQuery)
                     .checkSearchResult(expectedLink);

@@ -18,12 +18,12 @@ public class ParameterizedMainPageTests extends TestBase {
     @EnumSource(MainMenu.class)
     @DisplayName("Основное меню сайта должно содержать корректные названия разделов")
     @ParameterizedTest(name = "{0}")
-    void theMainMenuShouldContainsCorrectTitles(MainMenu mainMenu) {
+    void theMainMenuShouldContainsCorrectTitlesTest(MainMenu mainMenu) {
         mainPage.openMainPage()
                 .checkMainMenu(mainMenu.description);
     }
 
-    static Stream<Arguments> thePopularProductsSectionShouldHaveCorrectCards() {
+    static Stream<Arguments> thePopularProductsSectionShouldHaveCorrectCardsTest() {
         return Stream.of(
                 Arguments.of(
                         PopularProducts.FOR_BUSINESS,
@@ -53,8 +53,8 @@ public class ParameterizedMainPageTests extends TestBase {
     @DisplayName("Разделы секции Популярные продукты должны иметь карточки " +
             "с правильным текстом и описанием")
     @ParameterizedTest
-    void thePopularProductsSectionShouldHaveCorrectCards(PopularProducts popularProducts,
-                                                         List<String> expectedCards, List<String> expectedText) {
+    void thePopularProductsSectionShouldHaveCorrectCardsTest(PopularProducts popularProducts,
+                                                             List<String> expectedCards, List<String> expectedText) {
         mainPage.openMainPage()
                 .scrollInToPopularProductsSection()
                 .selectPopularProduct(popularProducts.description)
@@ -67,7 +67,7 @@ public class ParameterizedMainPageTests extends TestBase {
     })
     @DisplayName("Карточки раздела Интересное для Вас должны иметь правильные названия")
     @ParameterizedTest
-    void theInterestingItemsSectionShouldHaveCardsWithCorrectTitles(String cardTitle) {
+    void theInterestingItemsSectionShouldHaveCardsWithCorrectTitlesTest(String cardTitle) {
         mainPage.openMainPage()
                 .checkInterestingForYouCardsTitles(cardTitle);
     }

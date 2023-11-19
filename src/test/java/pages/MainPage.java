@@ -13,17 +13,16 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class MainPage {
 
-    private final String CONTACTS_SEСTION_TITLE = "СВЯЗЬ С КОМПАНИЕЙ",
-                         ACCEPT_COOKIES = "Подтверждаю";
+    private final String CONTACTS_SEСTION_TITLE = "СВЯЗЬ С КОМПАНИЕЙ";
 
-    private SelenideElement
+    private final SelenideElement
                 footerSection = $(".contacts__section-title"),
                 headerRow = $(".header__row"),
                 popularProductsTab = $(".main-popular__products"),
                 interestingForYouSection = $(".interesting__grid"),
                 scrollInToPopularProductsSection = $(".main-page__forms");
 
-    private ElementsCollection
+    private final ElementsCollection
                 popularProductsCardsTitles = $$(".popular-products-item__title"),
                 popularProductsCardsTexts = $$(".popular-products-item__text");
 
