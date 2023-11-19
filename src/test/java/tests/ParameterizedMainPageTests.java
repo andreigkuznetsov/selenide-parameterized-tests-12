@@ -17,7 +17,7 @@ public class ParameterizedMainPageTests extends TestBase {
 
     @EnumSource(MainMenu.class)
     @DisplayName("Основное меню сайта должно содержать корректные названия разделов")
-    @ParameterizedTest
+    @ParameterizedTest(name = "{0}")
     void theMainMenuShouldContainsCorrectTitles(MainMenu mainMenu) {
         mainPage.openMainPage()
                 .checkMainMenu(mainMenu.description);
@@ -56,6 +56,7 @@ public class ParameterizedMainPageTests extends TestBase {
     void thePopularProductsSectionShouldHaveCorrectCards(PopularProducts popularProducts,
                                                          List<String> expectedCards, List<String> expectedText) {
         mainPage.openMainPage()
+                .scrollInToPopularProductsSection()
                 .selectPopularProduct(popularProducts.description)
                 .checkPopularProductsCardsTitles(expectedCards)
                 .checkPopularProductsCardsTexts(expectedText);

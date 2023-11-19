@@ -2,6 +2,7 @@ package pages;
 
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
+import com.codeborne.selenide.WebDriverRunner;
 
 import java.util.List;
 
@@ -12,13 +13,15 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class MainPage {
 
-    private final String CONTACTS_SEСTION_TITLE = "СВЯЗЬ С КОМПАНИЕЙ";
+    private final String CONTACTS_SEСTION_TITLE = "СВЯЗЬ С КОМПАНИЕЙ",
+                         ACCEPT_COOKIES = "Подтверждаю";
 
     private SelenideElement
                 footerSection = $(".contacts__section-title"),
                 headerRow = $(".header__row"),
                 popularProductsTab = $(".main-popular__products"),
-                interestingForYouSection = $(".interesting__grid");
+                interestingForYouSection = $(".interesting__grid"),
+                scrollInToPopularProductsSection = $(".main-page__forms");
 
     private ElementsCollection
                 popularProductsCardsTitles = $$(".popular-products-item__title"),
@@ -26,7 +29,14 @@ public class MainPage {
 
     public MainPage openMainPage() {
         open("/");
+        WebDriverRunner.getWebDriver().manage().window().maximize();
         footerSection.shouldHave(text(CONTACTS_SEСTION_TITLE));
+
+        return this;
+    }
+
+    public MainPage scrollInToPopularProductsSection() {
+        scrollInToPopularProductsSection.scrollIntoView(true);
 
         return this;
     }

@@ -1,6 +1,7 @@
 package pages;
 
 import com.codeborne.selenide.SelenideElement;
+import com.codeborne.selenide.WebDriverRunner;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
@@ -17,6 +18,7 @@ public class SearchPage {
 
     public SearchPage openSearchPage() {
         open("/search-content?search-text");
+        WebDriverRunner.getWebDriver().manage().window().maximize();
         searchPageBody.shouldHave(text(SEARCH_PAGE_TITLE));
 
         return this;
