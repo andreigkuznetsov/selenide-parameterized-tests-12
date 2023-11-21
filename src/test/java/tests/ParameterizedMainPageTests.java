@@ -20,10 +20,10 @@ public class ParameterizedMainPageTests extends TestBase {
     @ParameterizedTest(name = "{0}")
     void theMainMenuShouldContainsCorrectTitlesTest(MainMenu mainMenu) {
         mainPage.openMainPage()
-                .checkMainMenu(mainMenu.description);
+                .checkMainMenu(mainMenu.getDescription());
     }
 
-    static Stream<Arguments> thePopularProductsSectionShouldHaveCorrectCardsTest() {
+    static Stream<Arguments> cardsDetails() {
         return Stream.of(
                 Arguments.of(
                         PopularProducts.FOR_BUSINESS,
@@ -49,7 +49,7 @@ public class ParameterizedMainPageTests extends TestBase {
         );
     }
 
-    @MethodSource
+    @MethodSource("cardsDetails")
     @DisplayName("Разделы секции Популярные продукты должны иметь карточки " +
             "с правильным текстом и описанием")
     @ParameterizedTest
@@ -57,7 +57,7 @@ public class ParameterizedMainPageTests extends TestBase {
                                                              List<String> expectedCards, List<String> expectedText) {
         mainPage.openMainPage()
                 .scrollInToPopularProductsSection()
-                .selectPopularProduct(popularProducts.description)
+                .selectPopularProduct(popularProducts.getDescription())
                 .checkPopularProductsCardsTitles(expectedCards)
                 .checkPopularProductsCardsTexts(expectedText);
     }

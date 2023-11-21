@@ -13,4 +13,8 @@ public enum MainMenu {
     MainMenu(String description) {
         this.description = description;
     }
+
+    public String getDescription() {
+        return this.description;
+    }
 }
